@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		var d,h,s1,s2,jar_quantity,consumption;
+		d=+prompt('Введите диаметр бочки (метр)');
+		h=+prompt('Введите высоту бочки (метр)');
+		consumption=+prompt('Какой расход краски (литр/кв.метр)');
+		s1=Math.PI * Math.pow(d/2, 2);
+		s2=h*Math.PI*d;
+		jar_quantity=((s1+s2)/consumption)/3;
+alert('Для покраски потребуется ' + Math.ceil(jar_quantity) + ' банок краски');
+	</script> 
+</head>
+
+<!-- PAGE-->
+</html>

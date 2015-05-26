@@ -1,0 +1,36 @@
+
+<html>
+<head>
+<script type="text/javascript">
+var a, n;
+a = prompt('Введите число для расчета факториала');
+
+//********Решение череp рекурсию цикл************
+function facktorial(a){
+	n=parseInt(a,10);
+	return (n<0 || n!=a)? 'Факториал возможно взять только из натуральных чисел': (n==0 ? 1:n*facktorial(n-1));
+};
+
+function get_duble_facktorial(a) {
+n=parseInt(a,10);
+	return (n<0 || n!=a)? 'Факториал возможно взять только из натуральных чисел': (n==0 ? 1:n* (get_duble_facktorial(n-2)))
+};
+
+
+
+document.write(facktorial(a));
+document.write('<br>' + get_duble_facktorial(a));
+
+//********Решение через цикл************
+// f=1;
+// function fuctorial(n){
+// for (var i = 1; i <= n; i++) {f=f*i};
+// return f;}
+// document.write(fuctorial(a));
+
+
+</script>
+</head>
+<body>
+<!--PAGE GOES HERE -->
+</body>

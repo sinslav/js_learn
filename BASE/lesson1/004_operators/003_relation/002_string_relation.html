@@ -1,0 +1,38 @@
+﻿<!--
+    Сравнение строк производиться посимвольно для числовых значений каждого символа из кодировки Unicode.
+    Символ в верхнем регистре считается меньше символа в нижнем регистре.
+    Например: A - code (41 Hex)
+              a - code (61 Hex)
+-->
+<html>
+<head>
+    <title>Сравнение строк</title>
+
+    <script type="text/javascript">
+
+        var user_1 = "Маша";
+        var user_2 = "Мария";
+
+        var result;
+
+        result = user_1 > user_2;
+        console.log("user_1 > user_2: " + result);
+
+        result = user_1 < user_2;
+        console.log("user_1 < user_2: " + result);
+
+        result = user_1 >= user_2;
+        console.log("user_1 >= user_2: " + result);
+
+        result = user_1 <= user_2;
+        console.log("user_1 <= user_2: " + result);
+
+    </script>
+
+</head>
+<body>
+
+    <!-- Разметка страници -->
+
+</body>
+</html>

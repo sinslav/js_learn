@@ -1,0 +1,38 @@
+﻿<!--
+    Рекурсия — самовызов функции.
+
+    У каждого вызова функции есть свой «контекст выполнения» (execution context).
+    Контекст выполнения включает в себя локальные переменные функции 
+    и другую служебную информацию, необходимую для её текущего выполнения.
+-->
+
+<html>
+<head>
+    <title>Рекурсия</title>
+
+    <script type="text/javascript">
+
+        function recursion(counter) {
+
+            counter--;
+
+            console.log("Первая половина метода: " + counter);
+
+            if (counter != 0) {
+                recursion(counter);
+            }
+
+            console.log("Вторая половина метода: " + counter);
+        }
+
+        recursion(3);
+
+    </script>
+
+</head>
+<body>
+
+    <!-- Разметка страници -->
+
+</body>
+</html>

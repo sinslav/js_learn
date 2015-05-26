@@ -1,0 +1,27 @@
+<!-- Backreference - обращение к предыдущей части.. -->
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>RexExp</title>
+</head>
+<body>
+
+<button onclick="myFunction()">Пробовать</button>
+
+<script>
+function myFunction() {
+    // alert("2 ++ 1".replace("+", "*")); Ошибка
+    alert("2 ++ 1".replace(/\+/g, "*"));
+
+    var str = "count 36-26, 18-9";
+    var re =  /(\d+)-(\d+)/g;
+    result = str.match(re);
+    for(var i=0; i<result.length; i++) {
+        alert(result[i]);
+    };
+
+};
+</script>
+</body>
+</html>

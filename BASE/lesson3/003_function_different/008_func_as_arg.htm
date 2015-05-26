@@ -1,0 +1,39 @@
+﻿<!--
+    Функции, передаваемые в качестве аргументов другой функции 
+-->
+
+<html>
+<head>
+    <title>CallBack Function</title>
+
+    <script type="text/javascript">
+
+        var add = function (a, b) { return a + b; };
+        var sub = function (a, b) { return a - b; };
+        var mul = function (a, b) { return a * b; };
+        var div = function (a, b) { return a / b; };
+
+        function calculate(callBackFunction, a, b) {
+
+            var result = callBackFunction(a, b);
+            console.log(result);
+
+        };
+
+        var a = prompt("enter 1st operand");
+        var b = prompt("enter 2nd operand");
+
+        calculate(add, 10, 20);
+        calculate(sub, 50, 30);
+        calculate(mul, 10, 20);
+        calculate(div, 50, 30);
+
+    </script>
+
+</head>
+<body>
+
+    <!-- Разметка страници -->
+
+</body>
+</html>

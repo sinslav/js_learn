@@ -1,0 +1,33 @@
+﻿<html>
+<head>
+    <title>Условная конструкция if else</title>
+
+    <script type="text/javascript">
+
+        var ticket_price = 200;
+
+        var ticket_count = +prompt("Введите количество билетов. Стоимость одного билета - 200грн.");
+        var money = +prompt("Внесите деньги");
+
+        var sum = ticket_price * ticket_count;
+
+        if (sum < money) {
+            var renting = money - sum;
+            console.log("Благодарим за Ваш заказ. Ваша сдача - " + renting);
+        }
+        else if (sum > money) {
+            console.log("Недостаточно средств");
+        }
+        else {
+            console.log("Благодарим за Ваш заказ. Спасибо, что без сдачи)");
+        }
+
+    </script>
+
+</head>
+<body>
+
+    <!-- Разметка страници -->
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript">
+	   var number_of_day=+prompt('Введите номер дня');	  
+	    var n=number_of_day%7;
+	    if (number_of_day<=365 && number_of_day>=1) {
+	    switch (n) {
+	    	case 0: {alert('Воскресенье'); break;}
+	    	case 1: {alert('Понедельник'); break;}
+	    	case 2: {alert('Вторницк'); break;}
+	    	case 3: {alert('Среда'); break;}
+	    	case 4: {alert('Четверг'); break;}
+	    	case 5: {alert('Пятница'); break;}
+	    	case 6: {alert('Суббота'); break;}
+	    	default: {alert('Ошибка'); break;}
+	    }
+	    }
+	    else {alert('Введте номер дня года в диапазоне от 1 до 365')};
+    </script>
+</head>
+<body>
+</body>
+</html>

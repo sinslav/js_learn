@@ -1,0 +1,37 @@
+
+<html>
+<head>
+<head>
+<script type="text/javascript">
+
+//Определяем переменные
+var num1, num2, operat, result;
+
+//Получаем данные от пользователя
+num1=+prompt('Число 1');
+operat=prompt('Знак действия');
+num2=+prompt('Число 2');
+
+
+//Список функций
+var plus=function(num1, num2){return num1+num2;};
+var minus=function(num1, num2){return num1-num2;};
+var umhojenie=function(num1, num2){return num1*num2;};
+var delenie=function(num1, num2){return num1/num2;};
+	function calculate (operation, num1, num2){
+		var result = operation(num1,num2);
+		return result;
+	}
+
+//условные операторы расчета и вывода результата
+if (operat=='+') {alert(calculate(plus,num1,num2))};
+if (operat=='-') {alert(calculate(minus,num1,num2))};
+if (operat=='/') {alert(calculate(delenie,num1,num2))};
+if (operat=='*') {alert(calculate(umhojenie,num1,num2))};
+
+	
+</script>
+</head>
+<body>
+<!--PAGE GOES HERE -->
+</body>

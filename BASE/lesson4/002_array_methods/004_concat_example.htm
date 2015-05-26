@@ -1,0 +1,26 @@
+﻿<html>
+<head>
+    <title>Метод concat() пример</title>
+
+    <script type="text/javascript">
+
+        var fruits = ["яблоко", "груша", "слива", "апельсин"];
+
+        var input = prompt("Введите название нового фрукта.\n\n Уже есть: \n\n" + fruits.join("\n"));
+
+        while (input != null) {
+            fruits = fruits.concat(input);
+            input = prompt("Введите название нового фрукта.\n\n Уже есть: \n\n" + fruits.join("\n"));
+        }
+
+        document.write(fruits.join("<br />"));
+
+    </script>
+
+</head>
+<body>
+
+    <!-- Разметка страници -->
+
+</body>
+</html>

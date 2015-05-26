@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script type="text/javascript">
+	    var valuta, sum, uah_kurs, usd_kurs, eur_kurs;
+	    uah_kurs=1;
+	    usd_kurs=1/28;
+	    eur_kurs=1/32;
+	    valuta=prompt('Какую валюту вы хотите обменять? \(usd\, uah или eur\)');
+	    // if (valuta !== 'usd' || 'USD' || 'uah' || 'UAH' || 'EUR' ||'eur') {alert('Введите валюту в формате USD, UAH или EUR')}; 
+	    sum=+prompt('Сколько у вас валюты?');
+	    	switch(valuta) {
+	    		case 'usd'||'USD': {alert('Ваши ' + sum + ' ' +  valuta + ' равны ' + sum/usd_kurs + ' uah ' + ' или ' + sum/usd_kurs * eur_kurs + ' eur'); break;}
+	    		case 'uah'||'UAH': {alert('Ваши ' + sum + ' ' +  valuta + ' равны ' + sum*usd_kurs + ' usd ' + ' или ' + sum*eur_kurs + ' eur' ); break;}
+	    		case 'eur'||'EUR': {alert('Ваши ' + sum + ' ' +  valuta + ' равны ' + sum/eur_kurs*usd_kurs + ' usd ' + ' или ' + sum/eur_kurs + ' uah' );}
+	    		default: {alert('Не вверно введена сумма денег')}   }
+    </script>
+</head>
+<body>
+</body>
+</html>
