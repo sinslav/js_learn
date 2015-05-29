@@ -14,55 +14,27 @@
 
 <!-- JS -->
         <script>
-        function selectFirst() {
-                var list = document.getElementById("ulist");
-                var child=list.firstChild;
-                if (child) {
-                    child.setAttribute("style", "background-color: #E79999");
-                }
-            };
 
-        function selectLast() {
-                        var list = document.getElementById("ulist");
-                        var child=list.lastChild;
-                        if (child) {
-                    child.setAttribute("style", "background-color: #E79999");
-                }
-                    };
 
-         function newChildBegin() {
-                    var list = document.getElementById("ulist");
-                    var newChildAtBegin = document.createElement("li");
-                    newChildAtBegin.innerHTML = "*";
-                    if (list.firstChild) {
-                        list.insertBefore(newChildAtBegin, list.firstChild);
-                    }
-                };
+        var list = document.querySelector('ul');    
+                   console.log(list); 
 
-          function addNewChild() {
-                var list = document.getElementById("ulist");
-                var newChildEnd = document.createElement("li");
-                newChildEnd.innerHTML("-");
-                list.appendChild(newChildEnd);
+        for (var i=0; i>list.childNodes.length; i++) {
+            console.log(list.childNodes[i]);
+        }
 
-          }
+
+
 
 
         </script>
 
 
 </head>
-<body>
-<ul id="ulist">
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
-    <li>5</li>
-</ul>
+<body><ul id="ulist"><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>
 <div class="buttngrp">
-    <button type="button" onclick="selectFirst()">Выбрать первый элемент</button>
-    <button type="button" onclick="selectLast()">Выбрать последний элемент</button>
+    <button type="button">Выбрать первый элемент</button>
+    <button type="button">Выбрать последний элемент</button>
     <button type="button">Выбрать следующий элемент</button>
     <button type="button">Выбрать предыдущий элемент</button>
     <button type="button" onclick="addNewChild()">Добавить элемент</button>
