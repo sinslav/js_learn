@@ -11,37 +11,61 @@
     .delete{background-color: #E79999;}
     button:hover{opacity: 0.8; cursor: pointer;}
     </style>
-
-<!-- JS -->
-        <script>
-
-
-        var list = document.querySelector('ul');    
-                   console.log(list); 
-
-        for (var i=0; i>list.childNodes.length; i++) {
-            console.log(list.childNodes[i]);
-        }
-
-
-
-
-
-        </script>
-
-
 </head>
-<body><ul id="ulist"><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>
+<body><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>
 <div class="buttngrp">
-    <button type="button">Выбрать первый элемент</button>
-    <button type="button">Выбрать последний элемент</button>
-    <button type="button">Выбрать следующий элемент</button>
+    <button class="selectfirst" type="button" onclick="selectFirstChild()">Выбрать первый элемент</button>
+    <button type="button" onclick="selectLastChild()">Выбрать последний элемент</button>
+    <button type="button" onclick="selectNext()">Выбрать следующий элемент</button>
     <button type="button">Выбрать предыдущий элемент</button>
     <button type="button" onclick="addNewChild()">Добавить элемент</button>
     <button class="delete" type="button">Удалить элемент</button>
-    <button type="button" onclick="newChildBegin()">Добавить в начало</button>
+    <button type="button" onclick="">Добавить в начало</button>
+    <button type="button" onclick="resetColor()">Сбросить выделение</button>
 </div>
 
+
+ <script>
+
+        var node = node || null; 
+        var list = document.querySelector('ul');
+        var listContent = list.childNodes;
+        
+
+        function selectFirstChild () {
+            list.firstChild.style.backgroundColor = 'red';
+        }
+
+        function selectLastChild () {
+            list.lastChild.style.backgroundColor = 'red';
+        }
+        function selectNext () {
+
+            if (!node) {
+                node = list.firstChild
+                node.setAttribute('style' , 'background-color: red;');
+            };
+            node = node.nextSibling;
+            if (node) {
+                resetColor();   
+                node.setAttribute('style', 'background-color: red;');
+            }
+            else {
+                alert ('There is no elements');
+            };
+        };
+
+
+            
+
+            function resetColor () {
+for (var i = listContent.length - 1; i >= 0; i--) {
+            listContent[i].setAttribute('style', 'background-color: #999595;') ;
+        };
+            }
+
+
+        </script>
 
 </body>
 </html>
