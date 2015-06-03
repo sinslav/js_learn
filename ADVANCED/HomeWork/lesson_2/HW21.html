@@ -1,0 +1,82 @@
+
+<!-- 
+    Перепишите все селекторы из первой папки 001_CSS_Selectors с помощью известных Вам методов и свойств.
+    В примере с классом добавьте к существующем классу, класс с именем newclass, а также выведите в консоль все стили что есть у элемента с этим классом
+    В примере с индентификатором добавьте свойства marginTop с значением 10px и background с значением red
+ -->
+
+ <!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+        </head>
+     <body>
+	<div class="class1" id="id1">div1</div>
+	<div class="class2" id="id2">div2</div>
+		<div class="class3" id="id3">
+			<span href="#" class="span span1">span1</span><span href="http://i.ua" class="span span2">span2</span><span href="#" class="span span3">span3</span>
+		</div>
+
+
+
+
+<script type="text/javascript">
+
+// #id1
+	var div1=document.getElementById('id1');
+	div1.style.color = "red";
+
+// div
+		var div2=document.getElementsByTagName('div');
+		console.log(div2);
+		for (var i = div2.length - 1; i >= 0; i--) {
+			div2[i].style.color = "rgb(95, 211, 95)";
+		};
+		
+// *
+	var all = document.getElementsByTagName('*');
+	console.log(all);
+	for (var i = all.length - 1; i >= 0; i--) {
+		all[i].style.textTransform = "uppercase";
+	};
+	
+// div > span
+		var divInDoc= document.getElementsByTagName('div');
+		for (var i = divInDoc.length - 1; i >= 0; i--) {
+			var span=divInDoc[i].getElementsByTagName('span');
+				for (var j = span.length - 1; j >= 0; j--) {
+					span[j].style.color= "red";
+					span[j].style.paddingLeft= "15px";
+				};
+		};
+		
+// .span1 + .span2
+	var spanclass = document.querySelector(".span1");
+		spanclass.nextSibling.style.color = "black";
+		
+// span[href] 
+
+		var atrr = document.querySelectorAll('span[href]');
+		console.log(atrr);
+			for (i = atrr.length - 1; i >= 0; i--) {
+				atrr[i].style.textDecoration='underline';
+			};
+
+// span[href*=ua] 
+
+		var atrr = document.querySelectorAll('span[href*=ua]');
+		console.log(atrr);
+			for (i = atrr.length - 1; i >= 0; i--) {
+				atrr[i].style.textDecoration='line-through';
+			};
+
+
+	</script>   
+    
+    </body>
+</html>

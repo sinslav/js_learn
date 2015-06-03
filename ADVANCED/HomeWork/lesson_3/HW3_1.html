@@ -1,79 +1,113 @@
 <!--     Создайте счетчик секунд, который начинает отчет с 1 и заканчивается на 30, также добавьте кнопки который останавливают отчет, и запускают его заново и добавьте кнопку обнуляющую отчет. Также попробуйте изменить код так чтобы отчет начиналься с 30 и заканчивалься на 1. -->
 <!DOCTYPE html>
 <html>
-    <head>
-        <title></title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
             <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-        <style>
-        .counter{
-        	display: inline-block;
-        	background-color: red;
-        	border-radius: 50%;
-  			margin: 100px 50vh;
-  			padding: 40px;
-  			color: #FFF;
-  			line-height: 100%;
+            <![endif]-->
+            <style>
 
-        }
+                .counter{
+                   display: inline-block;
+                   position: relative;
+                   background-color: red;
+                   border-radius: 50%;
+                   margin: 100px;
+                   padding: 40px;
+                   color: #FFF;
+                   line-height: 100%;
+                   max-width: 80px;
+                   max-height:80px;
 
-        .btn{
-        	display: inline-block;
-        	padding: 10px 16px;
-        	margin: 25px;
-        }
-        .btngrp{
-        	margin: 30px auto;
-        }
+               }
+
+               .btn{
+                   display: inline-block;
+                   padding: 10px 16px;
+                   margin: 25px;
+               }
+               .btngrp{
+                position: relative;
+                margin: 30px auto;
+            }
+            #number{
+                position: absolute;
+                left: 50%;
+                right: 50%;
+                transform: translate(-5px, -50%);
+            }
 
         </style>
     </head>
     <body>
-	    <span id="span" class="counter"></span>
-	    <div class="btngrp">
-	    	<input class="btn" type="button" value="Начать счетчик" onclick="startCounter()">
-		    <input class="btn" type="button" value="Остановить счетчик" onclick="stop()">
-		    <input class="btn" type="button" value="Начать заново" onclick="restart()">
-		    <input class="btn" type="button" value="Обнулить счетчик" onclick="">
-	    </div>
-	<script>
+       <div class="counter">
+        <span id="number"></span>   
+    </div>
+    <div class="buttongrp">
+      <input class="btn" type="button" value="Начать счетчик" onclick="startCounter()">
+      <input class="btn" type="button" value="Остановить счетчик" onclick="stop()">
+      <input class="btn" type="button" value="Начать заново" onclick="restart()">
+      <input class="btn" type="button" value="Обнулить счетчик" onclick="">
+  </div>
+  <script>
 
-
-	var span = document.getElementById('span');
-	var interval=1000;
-	var spanStr = 0;
-
-
-
-	var count = function startCounter(){
-		spanStr++; 
-		span.innerHTML = spanStr;
-		if (spanStr>29) {
-			clearInterval(counter)};
-		}
-	var counter = setInterval(count, interval);
-
-	function stop() {
-		clearInterval(counter);
-	}
-
-	function restart() {
-		spanStr=0
-		span.innerHTML= spanStr;
-		startCounter();
-	}
-
-
-
-
-	</script>
+document.onLoad = function globalCounter(){
+    var counterNumber = document.getElementById('number');
+    
+    function startCounter (){
+        var number = number || 0;
+        var interval = 1000;
+        var count = setInterval(beginCount, interval);
+        function beginCount () {
+            counterNumber.innerHTML = number++;
+            if (number === 31 ) {
+                clearInterval(count);
+            }
+        }
+    };
+};
 
 
 
 
 
-    </body>
+	// var span = document.getElementById('span');
+	// var interval=1000;
+	// var spanStr = 0;
+
+
+
+	// var count = function startCounter(){
+	// 	spanStr++; 
+	// 	span.innerHTML = spanStr;
+	// 	if (spanStr>29) {
+	// 		clearInterval(counter)};
+	// 	}
+	// function startProgramm () {
+ //         var counter = setInterval(count, interval);
+ //     } 
+
+	// function stop() {
+	// 	clearInterval(counter);
+	// }
+
+	// function restart() {
+	// 	spanStr=0
+	// 	span.innerHTML= spanStr;
+	// 	startCounter();
+	// }
+
+
+
+
+</script>
+
+
+
+
+
+</body>
 </html>
