@@ -47,67 +47,49 @@
         <span id="number"></span>   
     </div>
     <div class="buttongrp">
-      <input class="btn" type="button" value="Начать счетчик" onclick="startCounter()">
+      <input class="btn" type="button" value="Начать/продолжить счетчик" onclick="startCounter()">
       <input class="btn" type="button" value="Остановить счетчик" onclick="stop()">
       <input class="btn" type="button" value="Начать заново" onclick="restart()">
-      <input class="btn" type="button" value="Обнулить счетчик" onclick="">
+      <input class="btn" type="button" value="Обнулить счетчик" onclick="maleNullCounter()">
   </div>
   <script>
 
-document.onLoad = function globalCounter(){
-    var counterNumber = document.getElementById('number');
-    
-    function startCounter (){
-        var number = number || 0;
-        var interval = 1000;
-        var count = setInterval(beginCount, interval);
-        function beginCount () {
-            counterNumber.innerHTML = number++;
-            if (number === 31 ) {
-                clearInterval(count);
-            }
-        }
+    var count, counterNumber, number, interval, limit;
+    counterNumber = document.getElementById('number');
+
+    function startCounter(){
+
+     number = number || 0;
+     interval = 1000;
+     limit = 5 + 1;
+     clearInterval(count);
+     count = setInterval(beginCount, interval);
+
+     function beginCount() {
+        counterNumber.innerHTML = number++;
+        if (number === limit ) {
+            clearInterval(count);
+        };
+    };
+
+};
+function stop () {
+    clearInterval(count);
+};
+
+function restart(){
+    clearInterval(count);
+    number = 0;
+    startCounter();
+};
+
+function maleNullCounter () {
+    number = 0;
+    if (counterNumber.innerHTML) {
+        counterNumber.innerHTML = 0;
     };
 };
 
-
-
-
-
-	// var span = document.getElementById('span');
-	// var interval=1000;
-	// var spanStr = 0;
-
-
-
-	// var count = function startCounter(){
-	// 	spanStr++; 
-	// 	span.innerHTML = spanStr;
-	// 	if (spanStr>29) {
-	// 		clearInterval(counter)};
-	// 	}
-	// function startProgramm () {
- //         var counter = setInterval(count, interval);
- //     } 
-
-	// function stop() {
-	// 	clearInterval(counter);
-	// }
-
-	// function restart() {
-	// 	spanStr=0
-	// 	span.innerHTML= spanStr;
-	// 	startCounter();
-	// }
-
-
-
-
 </script>
-
-
-
-
-
 </body>
 </html>

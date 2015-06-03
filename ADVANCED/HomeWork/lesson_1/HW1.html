@@ -3,29 +3,29 @@
 <head>
     <title>HW11</title>
     <style type="text/css">
-    *{margin: 0;padding: 0;}
-    ul{list-style-type: none;padding: 50px 100px ;}
-    li{display: inline-block;margin: 10px;width: 30px;height: 30px;background-color: #999595;border-radius: 50%;text-align: center;line-height: 30px;color: #FFF;}
-    button{display: inline-block; background-color: #4ec862; border-radius: 7px; border: 0; color: #FFF; padding: 5px 15px; margin: 10px;}
-    .buttngrp{width: 600px; text-align: center;}
-    .delete{background-color: #E79999;}
-    button:hover{opacity: 0.8; cursor: pointer;}
+        *{margin: 0;padding: 0;}
+        ul{list-style-type: none;padding: 50px 100px ;}
+        li{display: inline-block;margin: 10px;width: 30px;height: 30px;background-color: #999595;border-radius: 50%;text-align: center;line-height: 30px;color: #FFF;}
+        button{display: inline-block; background-color: #4ec862; border-radius: 7px; border: 0; color: #FFF; padding: 5px 15px; margin: 10px;}
+        .buttngrp{width: 600px; text-align: center;}
+        .delete{background-color: #E79999;}
+        button:hover{opacity: 0.8; cursor: pointer;}
     </style>
 </head>
 <body><ul><li>1</li><li>2</li><li>3</li><li>4</li><li>5</li></ul>
-<div class="buttngrp">
-    <button class="selectfirst" type="button" onclick="selectFirstChild()">Выбрать первый элемент</button>
-    <button type="button" onclick="selectLastChild()">Выбрать последний элемент</button>
-    <button type="button" onclick="selectNext()">Выбрать следующий элемент</button>
-    <button type="button">Выбрать предыдущий элемент</button>
-    <button type="button" onclick="addNewChild()">Добавить элемент</button>
-    <button class="delete" type="button">Удалить элемент</button>
-    <button type="button" onclick="">Добавить в начало</button>
-    <button type="button" onclick="resetColor()">Сбросить выделение</button>
-</div>
+    <div class="buttngrp">
+        <button class="selectfirst" type="button" onclick="selectFirstChild()">Выбрать первый элемент</button>
+        <button type="button" onclick="selectLastChild()">Выбрать последний элемент</button>
+        <button type="button" onclick="selectNext()">Выбрать следующий элемент</button>
+        <button type="button" onclick="prev()">Выбрать предыдущий элемент</button>
+        <button type="button" onclick="addNewChild()">Добавить элемент</button>
+        <button class="delete" type="button" onclick="deleteelement()">Удалить элемент</button>
+        <button type="button" onclick="addToBegin()" >Добавить в начало</button>
+        <button type="button" onclick="resetColor()">Сбросить выделение</button>
+    </div>
 
 
- <script>
+    <script>
 
         var node = node || null; 
         var list = document.querySelector('ul');
@@ -42,30 +42,60 @@
         function selectNext () {
 
             if (!node) {
-                node = list.firstChild
+                node = list.firstChild;
                 node.setAttribute('style' , 'background-color: red;');
+                return;
             };
             node = node.nextSibling;
+            resetColor(); 
             if (node) {
-                resetColor();   
                 node.setAttribute('style', 'background-color: red;');
+                return;
             }
-            else {
-                alert ('There is no elements');
+        };
+
+        function prev () {
+            if (!node){
+                node=list.lastChild;
+                // node.setAttribute('style' , 'background-color: red;');
+            };
+            node = node.previousSibling;
+            if (node ){
+                resetColor();
+                node.setAttribute('style' , 'background-color: red;');
+
             };
         };
 
 
-            
+        function deleteelement() {
+            list.removeChild(list.lastChild);
 
-            function resetColor () {
-for (var i = listContent.length - 1; i >= 0; i--) {
-            listContent[i].setAttribute('style', 'background-color: #999595;') ;
         };
-            }
+
+        function addNewChild () {
+            var newLi = document.createElement('li');
+            newLi.innerHTML = '*';
+            list.appendChild(newLi);
+        }
 
 
-        </script>
+        function resetColor () {
+            for (var i = listContent.length - 1; i >= 0; i--) {
+                listContent[i].setAttribute('style', 'background-color: #999595;') ;
+            };
+        };
+
+        function addToBegin () {
+        var newLi = document.createElement('li');
+            newLi.innerHTML = '*';
+            list.insertBefore(newLi, list.firstChild);
+        }
+
+
+
+
+    </script>
 
 </body>
 </html>
