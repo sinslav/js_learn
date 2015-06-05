@@ -20,7 +20,6 @@
         var divParent = document.getElementById("parent");
         divParent.addEventListener("click", function (e) {
             // preventDefault - позволяет отменить действие по умолчанию, которое связанно с событием.
-            alert("parent");
             this.style.backgroundColor = "yellow";
             e.preventDefault();
             return false; // Для старых браузеров

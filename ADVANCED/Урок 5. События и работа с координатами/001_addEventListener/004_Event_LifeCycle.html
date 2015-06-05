@@ -40,12 +40,12 @@
         var divParent = document.getElementById("parent");
         var divChild= document.getElementById("child");
         var divChildInChild= document.getElementById("childinchild");
-        var flagForPhase = false; // Bubble
+        var flagForPhase = true; // Bubble
         
         divParent.addEventListener("click", function () {
             alert("parent");
             this.style.backgroundColor = "yellow";
-        });
+        }, flagForPhase);
 
         divChild.addEventListener("click", function () {
             alert("child");

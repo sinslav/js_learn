@@ -11,12 +11,12 @@
             var target = e && e.target || event.srcElement;
             var href = target.getAttribute('href');
 
-            if (target.nodeName != 'A') {
+            if (target.tagName != 'A') {
                 return
             }
 
             alert(href);
-            e.preventDefault();
+            e.preventDefault();g
             return false; // отменить переход по ссылке
           });
       };

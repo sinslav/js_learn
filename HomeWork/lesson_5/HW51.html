@@ -1,0 +1,50 @@
+<!--
+Создайте ссылку и див с текстом внутри, который изначально при загрузке страницы будет скрыт. При клике на ссылку див пропадает, если повторно нажать ссылку див и текст должны вернуться. Также создайте кнопку, которая будет отменять выполнение обработчика клика по ссылке.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<style>
+	.text{
+		display: none;
+	}
+	.hide{
+		display:inline;
+	}
+
+</style>
+</head>
+<body>
+	<a id="link" href="http://i.ua">SHOW ME TEXT</a>
+	<div class="text"><div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor tempore reiciendis ex, nihil tempora eum doloremque accusantium ut alias nesciunt dicta expedita, perferendis vitae. Molestiae iure totam omnis quos labore.</div>
+	<div>Unde reiciendis, doloremque repudiandae! Nobis maiores in illum facilis, quasi eum eveniet praesentium ad rerum veritatis quam unde natus blanditiis sed beatae tenetur molestias quaerat! Eos, voluptas! Quod recusandae, voluptas.</div></div>
+	<button id="btn">Delete handler</button>
+
+	<script>
+	var link = document.getElementById('link');
+	var div = document.querySelector('.text');
+	var btn = document.getElementById('btn');
+
+		function hideDiv (event) {
+			event.preventDefault();
+			div.classList.toggle('hide');
+			return false;
+		}
+
+		function removeHandler (event) {
+			link.removeEventListener('click', hideDiv);
+		}
+
+	link.addEventListener('click', hideDiv);
+
+	btn.addEventListener('click', removeHandler);
+
+
+
+
+	</script>
+</body>
+</html>

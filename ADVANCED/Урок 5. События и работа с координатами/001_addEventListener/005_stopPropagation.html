@@ -41,23 +41,29 @@
         var divParent = document.getElementById("parent");
         var divChild = document.getElementById("child");
         var divChildInChild = document.getElementById("childinchild");
-        var flagForPhase = true; // Target
+        var flagForPhase = false; // Target
         
-        divParent.addEventListener("click", function (e) {
-            e.stopPropagation();
-            alert("parent");
+        divParent.addEventListener("click", doBrown , flagForPhase);
+
+        function doBrown () {
+            window.alert("parent");
             this.style.backgroundColor = "brown";
-        }, flagForPhase);
-
-        divChild.addEventListener("click", function (e) {
-            alert("child");
+        }
+        function doGreen (event) {
+            event.stopPropagation();
+            window.alert("child");
             this.style.backgroundColor = "green";
-        }, flagForPhase);
+        }
 
-        divChildInChild.addEventListener("click", function (e) {
-            alert("childinchild");
+        divChild.addEventListener("click", doGreen, flagForPhase);
+
+        function doBlue (event) {
+            event.stopPropagation();
+            window.alert("childinchild");
             this.style.backgroundColor = "blue";
-        }, flagForPhase);
+        }
+
+        divChildInChild.addEventListener("click", doBlue, flagForPhase);
 
     </script>
 </body>

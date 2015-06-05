@@ -1,0 +1,46 @@
+<!-- Создайте 5 блоков с текстом. Добавьте в каждый из блоков кнопку для его удаления. Используйте только один обработчик. -->
+    <!-- Доработайте пример 004_Attr_Tech.html таким образом, чтобы при наведении на span элементы, подсказка сплыва под ними, а не в модальном окне. Используйте addEventListener -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta charset="UTF-8">
+        <style>
+		.text{
+			display: inline-block;
+			margin: 30px 50px;
+		}
+        </style>
+    </head>
+    <body>
+	<div class="text text"><div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In dolor reprehenderit alias est, temporibus amet voluptate similique nemo suscipit commodi molestiae, cum, vero. Non consequatur nihil, illum voluptatibus asperiores aliquam.</div>
+	<div>Fugiat sunt molestias aut magni facere, distinctio aspernatur rem. Esse quo et suscipit perspiciatis molestiae enim quod quasi exercitationem itaque minima, iure consequatur dolore, impedit, dolorum laudantium dignissimos quidem voluptate?</div><button id="btn">Удалить абзац</button></div>
+	<div class="text text"><div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus earum sequi reiciendis, nam tenetur saepe inventore, vero doloremque at labore officia excepturi optio rerum, accusamus vitae sunt quos consequatur natus?</div>
+	<div>Eius doloremque rerum provident unde? Enim quas perspiciatis, earum facilis ea nostrum numquam. Ex inventore modi explicabo, nobis quibusdam non in quam eveniet, velit eligendi deleniti fugit maiores, enim ipsa.</div><button id="btn">Удалить абзац</button></div>
+	<div class="text text"><div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea dolores laborum, quia fuga illo officia voluptas quod iure, non veritatis accusantium obcaecati doloribus, dignissimos corporis molestiae itaque pariatur eius, error.</div>
+	<div>Commodi consequatur, nulla repellendus aliquid eos fuga, quisquam veniam accusantium soluta minima ipsum inventore voluptatem quidem omnis fugit ratione magni, incidunt dicta possimus impedit molestias! Vitae, similique id earum deleniti.</div><button id="btn">Удалить абзац</button></div>
+	<div class="text text"><div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate totam non adipisci, iusto voluptas reprehenderit! Recusandae quam maiores molestias, ipsam ut repellendus, placeat nobis adipisci architecto provident velit ipsa quo.</div>
+	<div>Magni nulla est cupiditate maxime provident laudantium rem nam exercitationem mollitia aut alias neque earum non quis sunt eum, voluptatum, laboriosam iure veritatis delectus itaque quia. Porro necessitatibus, cupiditate. Perferendis!</div><button id="btn">Удалить абзац</button></div>
+	<div class="text text"><div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit corporis eligendi consequuntur cum qui eos eveniet ab voluptatibus, est facere voluptatem modi perferendis nisi repudiandae provident excepturi odio laborum minus.</div>
+	<div>Ad aspernatur debitis, reprehenderit enim deserunt vitae officia, corporis quisquam quae delectus assumenda maiores, quasi magnam quos! Error minima est nostrum architecto voluptatibus. Architecto, sapiente beatae eaque, illum perspiciatis iure.</div><button id="btn">Удалить абзац</button></div>
+
+    <script>
+    var BTN = document.getElementsByTagName('button');
+
+    	for (var i = BTN.length - 1; i >= 0; i--) {
+    		BTN[i].addEventListener('click', removeTExt);
+    	};
+
+    		function removeTExt (event) {
+    			document.body.removeChild(event.target.parentNode)
+    		}
+
+    	
+
+
+
+    </script>
+    </body>
+</html>
