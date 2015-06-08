@@ -11,15 +11,13 @@
     </style>
     <script>
     window.addEventListener("load", function () {
-        var preventScroll = document.getElementById("prevent-scroll");
-        var undoscroll = document.getElementById("undo-scroll");
-        preventScroll.addEventListener("click", function () {
+
+        element.addEventListener("click", hidden);
+        function hidden () {
             document.body.style.overflow = "hidden";
-        });
-        undoscroll.addEventListener("click", function () {
-            document.body.style.overflow = "";
-        });
-    });
+        }
+ 
+
     </script>
 </head>
 <body>
