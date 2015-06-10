@@ -1,0 +1,30 @@
+<!-- Создайте функцию, которая возвращает день недели для даты. -->
+
+<!-- День нужно возвратить в формате - понедельник имеет номер 1, вторник номер 2, …, воскресенье - номер 7. -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+    <div id="date"></div>
+    <script>
+    myDateApp={
+    	placeForTime : document.getElementById('date'),
+    	dayOfWeek: 'Cегодня ' + new Date().getDay() + '-й день недели' ,
+    	insertDate: function () {
+    		this.placeForTime.innerHTML = this.dayOfWeek;
+    	}
+    };
+
+    myDateApp.insertDate();
+
+    </script>
+    </body>
+</html>

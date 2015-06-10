@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+    <script>
+function Man (name) {
+	this.name = name;
+	this.go = function () {document.write('I can go')};
+	this.eat = function () {document.write('I can eat')};
+	this.breath = function () {document.write('I can breath')};
+}
+function Soldier () {
+	this.shoot = function () {document.write('I can shoot')};
+}
+function Doctor () {
+	this.cure = function () {document.write('I can cure')};
+}
+
+	manExsample = new Man('Ярослав');
+	console.log(manExsample);
+	Doctor.prototype = manExsample;
+	doctorExample = new Doctor();
+	console.log(doctorExample);
+
+
+    </script>
+
+
+
+    </body>
+</html>
