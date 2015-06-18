@@ -1,0 +1,80 @@
+    <!-- Создайте страницу которая запрашивает имя пользователя, если пользователь вводит "Admin" либо "admin" он попадает на страницу, которая оповещает его о том что " Пользоваетль Admin(не статическая строка, а данные что ввел пользователь) вошел в систему" а рядом разместите кнопку "Выход" которая вернет пользователя к модальному окну ввода логина. Реализуйте код как для куки так и для localstorage. -->
+
+    <!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta charset="UTF-8">
+        <style>
+        </style>
+    </head>
+    <body>
+	<div id="inr"></div>
+
+    <script>
+    takeUserLogin();
+
+    if (isLogged()) {
+    	showPage()
+    } else {
+    	userAuth();
+    };
+
+    function isLogged (){
+    	if (document.cookie){
+    	var loggedUser = document.cookie.split('=');
+    	if loggedUser[1] === 'admin' {
+    		return true;
+    	}
+    	}
+    else {
+    	userAuth()
+    }
+
+    }
+    function userAuth() {
+    	var userName = prompt('Enter you name');
+			if ( userName == 'Admin' || userName == 'admin' ) {
+				document.cookie = 'name = Admin'
+			}
+			else
+				userAuth();
+    }
+
+
+    function showPage () {
+    	
+				document.getElementById('inr').innerHTML = 'Вошли в систему<button id="tbn">Выход</button>'	
+		exitBtn= document.getElementById('tbn');
+		exitBtn.addEventListener('click', logOut);
+    }
+
+    function logOut(){
+		document.cookie = 'max-age = 0';
+		location.reload();
+
+
+
+
+
+	// 	function takeUserLogin() {
+	// 		var userName = prompt('Enter you name');
+	// 		if ( userName == 'Admin' || userName == 'admin' ) {
+	// 			document.cookie = 'name = Admin'
+	// 			document.getElementById('inr').innerHTML = 'Вошли в систему<button id="tbn">Выход</button>'	
+	// 		}
+	// 		else {takeUserLogin()};
+	// 	}
+	function logOut(){
+		document.cookie = 'max-age = 0';
+		location.reload();
+	// }
+
+		exitBtn= document.getElementById('tbn');
+		exitBtn.addEventListener('click', logOut);
+
+
+    </script>
+    </body>
+</html>

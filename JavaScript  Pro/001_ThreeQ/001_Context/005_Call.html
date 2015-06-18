@@ -1,0 +1,24 @@
+<!-- Метод call() вызывает функцию с указанным значением this и индивидуально предоставленными аргументами. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Call Method</title>
+    <script>
+        var add = function( a, b ) {
+          return a + b;
+        }
+
+        console.log(add( 1, 2 ));
+
+        console.log(add.call( this, 1, 2 )); // call принимает каждый аргумент индивидуально и меняет контекст
+
+        console.log(add.apply( this, [ 1, 2 ] )); // apply принимает массив аргументов также меняя контекст
+    </script>
+</head>
+<body>
+    <a href="http://jsperf.com/call-apply-segu/45">
+        Performace test
+    </a>
+</body>
+</html>

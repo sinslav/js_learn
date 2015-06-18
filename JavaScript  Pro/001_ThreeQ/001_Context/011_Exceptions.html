@@ -1,0 +1,42 @@
+<!-- У объектов Function, созданных посредством Function.prototype.bind, отсутствует свойство prototype или внутренние свойства [[Code]], [[FormalParameters]] и [[Scope]]. -->
+<!-- Таким образом подменить контекст вызова для функций полученных с помощью Function.prototype.bind с использованием call и apply — нельзя! -->
+<!-- В конструкторе this ссылается на новый (создаваемый) объект. Иначе говоря, контекст заданный при помощи bind, просто игнорируется. Конструктор вызывает обычный [[Call]] исходной функции. Важно! Если в конструкторе отсутствует return this, то возвращаемое значение в общем случае неопределено и зависит от возвращаемого значения новой функции! -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exceptions</title>
+</head>
+    <script>
+        function ClassA() {
+          console.log(this.x, arguments)
+        }
+
+        ClassA.prototype.x = "fromProtoA";
+
+        var ClassB = ClassA.bind({x : "fromBind"}, "bindArg");
+
+        //  эта строчка не делает ничего в Function.prototype.bind
+        ClassB.prototype = {x : "fromProtoB" };
+
+        // bind не быль использован
+        // Результат: fromProtoA ["callArg"]
+        new ClassA("callArg"); 
+
+        // this ссылается на новый объект. поскольку в bind был задан параметр bindArg, то в выводе аргументов он займет первое место
+        // Результат:  fromProtoA ["bindArg", "callArg"]
+        new ClassB("callArg");
+
+        // Обычный вызов bind функции, поэтому в качестве контекста будет {x : "fromBind"}, первым параметром bindArg (заданный через bind), вторым - "callArg"
+        // Результат: fromBind ["bindArg", "callArg"]
+        ClassB("callArg");
+
+        // при вызове метода call на функции, полученной с использованием bind передаваемый контекст игнорируется.
+        // Результат: fromBind ["bindArg", "callArg"]
+        ClassB.call({x: "fromCall"}, 'callArg');
+
+    </script>
+<body>
+
+</body>
+</html>

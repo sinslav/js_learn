@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Answer</title>
+    <script>
+        function Product(name, price) {
+          this.name = name;
+          this.price = price;
+
+          if (price < 0) {
+            console.warn('Нельзя создать продукт ' + this.name + ' с отрицательной ценой');
+          }
+          return this;
+        }
+
+        function Food(name, price) {
+          Product.call(this, name, price);
+          this.category = 'еда';
+        }
+
+        Food.prototype = Object.create(Product.prototype);
+
+        function Toy(name, price) {
+          Product.call(this, name, price);
+          this.category = 'игрушка';
+        }
+
+        Toy.prototype = Object.create(Product.prototype);
+
+        var cheese = new Food('фета', -5);
+        var fun = new Toy('робот', 40);
+        console.log(cheese, fun);
+    </script>
+    <script>
+        function mult(a, b) {
+            return a*b;
+        }
+
+        var double = mult.bind(null, 2);
+        var triple = mult.bind(null, 3);
+        var quartet = mult.bind(null, 4);
+        console.log(double(3));
+        console.log(triple(3));
+        console.log(quartet(3));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

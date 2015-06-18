@@ -1,0 +1,21 @@
+<!-- создание функций, в свою очередь тоже создающих функции -->
+<!-- Благодаря замыканию возвращаемая функция «запоминает» параметры, переданные функции создающей -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function creation with Closures</title>
+    <script>
+        var createHelloFunction = function(name) {
+           return function() {
+              alert('Hello, ' + name);
+           }
+        }
+        var sayHello = createHelloFunction('John Doe');
+        sayHello(); 
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

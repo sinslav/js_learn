@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        // arguments.callee — ссылка на саму функцию.
+        function foo () {
+            console.log(arguments.callee === foo); // true
+        }
+        foo();
+         // Проверка, передано ли правильное количество элементов, или нет:
+         function test (foo, bar, qux) {
+            return arguments.callee.length === arguments.length;
+        }
+        console.log(test(1)); // false
+        console.log(test(1,2,3)); // true
+
+        function bar() {
+            console.log(arguments.callee); // сделать что-либо с этим объектом функции
+            console.log(arguments.callee.caller); // и с вызвавшим его объектом функции
+        }
+
+        function bigLoop() {
+            for(var i = 0; i < 100000; i++) {
+                bar(); // должна была бы «развернуться»
+            }
+        }
+        // В коде выше, функция foo не может быть «развёрнута» (а могла бы), потому что для корректной работы ей необходима ссылка и на себя и на вызвавший её объект. Такой код не только кладёт на лопатки механизм развёртывания, но и нарушает принцип инкапсуляции, поскольку функция становится зависима от конкретного контекста вызова.
+
+        // Крайне не рекомендуется использовать arguments.callee или какое-либо из его свойств. Никогда.
+    </script>
+</head>
+<body>
+    <a href="http://shamansir.github.io/JavaScript-Garden/#function.constructors">
+        Why callee is bad 
+    </a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments/callee">more</a>
+</body>
+</html>

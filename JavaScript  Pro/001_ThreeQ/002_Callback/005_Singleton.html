@@ -1,0 +1,32 @@
+<!-- Одиночка (англ. Singleton) — порождающий шаблон проектирования, гарантирующий, 
+что в однопоточном приложении будет единственный экземпляр класса с глобальной 
+точкой доступа. <-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Singleton</title>
+    <script>
+        var MyModule = (function() {
+            var name = 'John Doe';
+            function sayPreved() {
+                alert('Hello ' + name.toUpperCase());
+           }
+            // function sayHello() {
+            //     this.sayPreved(this.name)
+            // }
+           return {
+              sayHello: function() {
+                 sayPreved(name);
+              }
+           }
+        })();
+        MyModule.sayHello(); //alerts «Hello John Doe»
+        // С помощью замыкания мы можем сделать методы и свойства,
+        // которые вне объекта не используютя, приватными (т.е. доступными только ему):
+    </script> 
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!-- http://api.jquery.com/jQuery.proxy/ - аналоги в мире jQuery -->
+<!-- контекст обозначет то, на какой объект ссылается оператор this в функции, внутри которой он вызван. -->
+<!-- Метод apply() вызывает функцию с указанным значением this и аргументами, предоставленными в виде массива -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apply Method</title>
+    <script>
+        var myArray = [ 0, 1, 11, 222, 2, 3333, 3 ];
+
+        var smallest = function( array ) {
+            return Math.min.apply( Math, array );
+        }
+
+        var largest = function( array ) {
+            return Math.max.apply( Math, array );
+        }
+
+        console.log(smallest(a));
+        console.log(largest(a));
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

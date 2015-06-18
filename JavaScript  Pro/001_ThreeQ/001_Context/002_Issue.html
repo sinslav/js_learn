@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Context Issue</title>
+    <script>
+        // Массив для проверки
+        var myArray = [ 0, 1, 11, 222, 2, 3333, 3 ];
+        // Max function
+        var largest = function( customArray ) {
+            var max = 0;
+            for (var i = 0; i < customArray.length; i++) {
+                if (customArray[i] > max) {
+                    max = customArray[i];
+                }
+            };
+            return max;
+        }
+        // Min function
+        var smallest = function( customArray ) {
+            var min = customArray[0];
+            for (var i = 0; i < customArray.length; i++) {
+                if (customArray[i] < min) {
+                    min = customArray[i];
+                }
+            };
+            return min;
+        }
+
+        console.log(smallest(myArray)); 
+        console.log(largest(myArray));
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

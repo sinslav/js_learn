@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <script>
+        window.onload = function () {
+            var links = document.getElementsByTagName('a');
+            console.log(links);
+            for (var i = 0; i < links.length; i++) {
+               (function(i) {
+                  links[i].onclick = function() {
+                     alert(i);
+                  }
+               })(i);
+            }
+        }
+        // Здесь с помощью еще одного замыкания мы «затеняем» переменную i, создавая ее копию в его локальной области видимости на каждом шаге цикла. Благодаря этому всё теперь работает как задумывалось.
+
+        // Wrong
+        // for (var i = 0; i < links.length; i++) {
+        //     links[i].onclick = function() {
+        //         alert(i);
+        //     }
+        // }
+         // В связи с замыканием объявленная вспомогательная переменная i продолжает существовать, при чём и в тот момент, когда мы кликаем по ссылке. Поскольку к тому времени цикл уже прошёл, i остаётся равным кол-ву ссылок — это значение мы и видим при кликах.
+    </script>
+</head>
+<body>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+    <a href="#">123</a>
+</body>
+</html>

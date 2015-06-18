@@ -1,0 +1,35 @@
+<!-- Методы call/apply вызывают функцию с заданным контекстом и аргументами.
+
+А bind не вызывает функцию. Он только возвращает «обёртку», которую мы можем вызвать позже, и которая передаст вызов в исходную функцию, с привязанным контекстом. -->
+
+<!-- https://github.com/es-shims/es5-shim Полифил для IE8- --> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bind</title>
+    <script>
+
+        function LateBloomer() {
+          this.petalCount = Math.ceil(Math.random() * 12) + 1;
+        }
+
+        // Объявляем цветение с задержкой в 1 секунду
+        LateBloomer.prototype.bloom = function() {
+          window.setTimeout(this.declare.bind(this), 1000);
+        };
+
+        LateBloomer.prototype.declare = function() {
+          console.log('Я прекрасный цветок с ' +
+            this.petalCount + ' лепестками!');
+        };
+
+        var flower = new LateBloomer();
+
+        flower.bloom();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

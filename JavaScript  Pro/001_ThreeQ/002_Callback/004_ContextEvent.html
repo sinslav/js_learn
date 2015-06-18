@@ -1,0 +1,28 @@
+<!-- метод, привязывающий функцию к определённому контексту (т.е. объекту, на который в ней будет указывать слово this). -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Context and Event Closures</title>
+    <script>
+        Function.prototype.bind = function(context) {
+           var fn = this;
+           return function() {
+              return fn.apply(context, arguments);
+           };
+        }
+        var HelloPage = {
+           name: 'John Doe',
+           init: function() {
+              alert('Hello, ' + this.name);
+           }
+        }
+        //window.onload = HelloPage.init; // undefined, т.к. this на window
+        window.onload = HelloPage.init.bind(HelloPage);
+        // с помощью замыканий функция, вощвращаемая bind'ом, запоминает в себе начальную функцию и присваиваемый ей контекст.
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

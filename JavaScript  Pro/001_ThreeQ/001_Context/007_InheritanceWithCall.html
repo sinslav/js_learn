@@ -1,0 +1,45 @@
+<!-- Метод Object.create() создаёт новый объект с указанными объектом прототипа и свойствами. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inheritance with Call. Object create</title>
+    <script>
+        // Shape — класс родитель
+        function Shape() {
+          this.x = 0;
+          this.y = 0;
+        }
+
+        // метод класса
+        Shape.prototype.move = function(x, y) {
+          this.x += x;
+          this.y += y;
+          console.info('Фигура переместилась.');
+        };
+
+        // Rectangle — подкласс (дочерний класс)
+        function Rectangle() {
+          Shape.call(this); // вызываем конструктор класса родителя
+          this.square = function (a,b) {
+            return a * b;
+          } 
+        }
+
+        // подкласс расширяет класс родителя
+        Rectangle.prototype = Object.create(Shape.prototype); // IE9+
+        Rectangle.prototype.constructor = Rectangle;
+
+        var rect = new Rectangle();
+
+        console.log('Является ли rect экземпляром Rectangle? ' + (rect instanceof Rectangle)); // true
+        console.log('Является ли rect экземпляром Shape? ' + (rect instanceof Shape)); // true
+        rect.move(1, 1); // выведет 'Фигура переместилась.'
+        var result = rect.square(20, 5);
+        console.log(result);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!-- контекст обозначет то, на какой объект ссылается оператор this в функции, внутри которой он вызван. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Global context</title>
+    <script>
+        var context = function() {
+          
+          console.log( this ); // глобальный объект "Window"
+        } 
+        context();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

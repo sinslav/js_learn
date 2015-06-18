@@ -1,0 +1,36 @@
+<!-- Замыкание (англ. closure) в программировании — функция, в теле которой присутствуют ссылки на переменные, объявленные вне тела этой функции в окружающем коде и не являющиеся её параметрами. Говоря другим языком, замыкание — функция, которая ссылается на свободные переменные в своём контексте. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Preview</title>
+    <script>
+        function outerFn(myArg) {
+           var myVar;
+           function innerFn() {
+              //имеет доступ к myVar и myArg
+           }
+        }
+
+        function createCounter() {
+           var numberOfCalls = 0;
+           return function() {
+              return ++numberOfCalls;
+           }
+        }
+
+        var fn = createCounter();
+        console.log(fn());
+        console.log(fn());
+        console.log(fn());
+    </script>
+</head>
+<body>
+    <img src="https://lostechies.com/derekgreer/files/2012/02/closure3_thumb.png" alt="">
+    <p>
+        В данном примере функция, возвращаемая createCounter, использует переменную numberOfCalls, которая сохраняет нужное значение между ее вызовами (вместо того, чтобы сразу прекратить своё существование с возвратом createCounter).
+
+        Именно за эти свойства такие «вложенные» функции в JavaScript называют замыканиями (термином, пришедшим из функциональных языков программирования) — они «замыкают» на себя переменные и аргументы функции, внутри которой определены.
+    </p>
+</body>
+</html>

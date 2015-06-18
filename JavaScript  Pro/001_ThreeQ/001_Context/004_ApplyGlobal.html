@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Apply instead of Window</title>
+    <script>
+        var obj = { prop: 1 };
+
+        var context = function() {
+          
+          console.log(this.prop); // Мы получим наш объект "Object { prop=1 }"
+          console.log(this); // Мы получим наш объект "Object { prop=1 }"
+        } 
+
+        context.apply(obj);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

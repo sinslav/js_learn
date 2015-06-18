@@ -1,0 +1,45 @@
+<!-- 1.) Реализуйте hover изображений с помощью Javascript.
+    2.) Добавьте второй изображение при помощи JavaScript. При клике на изображение откройте его в полном размере.
+    3.) Выведите в рамзетку альтернативный текст для картинок. -->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+
+
+	<script>
+
+
+
+var	newImg = new Image();
+newImg.src = 'less.png';
+document.body.appendChild(newImg);
+newImg.addEventListener('mouseover', doOpacity);
+	function doOpacity () {
+		this.style.opacity = '0.5'
+	}
+newImg.addEventListener('mouseout', doNoOpacity);
+	function doNoOpacity () {
+		this.style.opacity = '1'
+	}
+newImg.addEventListener('click', goAway);
+function goAway () {
+	document.location.href = 'http://i.ua';
+}
+newImg.alt = 'test';
+
+	</script>
+	
+    </body>
+</html>
