@@ -27,8 +27,8 @@
         }
 
         // подкласс расширяет класс родителя
-        Rectangle.prototype = Object.create(Shape.prototype); // IE9+
-        Rectangle.prototype.constructor = Rectangle;
+        // Rectangle.prototype = Object.create(Shape.prototype); // IE9+
+        // Rectangle.prototype.constructor = Rectangle;
 
         var rect = new Rectangle();
 

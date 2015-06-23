@@ -10,15 +10,15 @@
         var myArray = [ 0, 1, 11, 222, 2, 3333, 3 ];
 
         var smallest = function( array ) {
-            return Math.min.apply( Math, array );
+            return Math.min.apply( this , array );
         }
 
         var largest = function( array ) {
-            return Math.max.apply( Math, array );
+            return Math.max.apply( this, array );
         }
 
-        console.log(smallest(a));
-        console.log(largest(a));
+        console.log(smallest(myArray));
+        console.log(largest(myArray));
 
     </script>
 </head>
