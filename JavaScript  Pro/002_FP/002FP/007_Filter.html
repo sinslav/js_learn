@@ -1,0 +1,49 @@
+<!-- Метод reduce() применяет функцию к аккумулятору и каждому значению массива (слева-направо), сводя его к одному значению. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reduce</title>
+    <script>
+        function isBigEnough(value) {
+          return value >= 10;
+        }
+        var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
+        console.log(filtered);
+
+
+        var arr = [
+          { id: 15 },
+          { id: -1 },
+          { id: 0 },
+          { id: 3 },
+          { id: 12.2 },
+          { },
+          { id: null },
+          { id: NaN },
+          { id: 'undefined' }
+        ];
+
+        var invalidEntries = 0;
+
+        function filterByID(obj) {
+          if ('id' in obj && typeof(obj.id) === 'number' && !isNaN(obj.id)) {
+            return true;
+          } else {
+            invalidEntries++;
+            return false;
+          }
+        }
+
+        var arrByID = arr.filter(filterByID);
+        console.log('Отфильтрованный массив\n', arrByID); // [{ id: 15 }, { id: -1 }, { id: 3 }, { id: 12.2 }]
+        // [{ id: 15 }, { id: -1 }, { id: 0 }, { id: 3 }, { id: 12.2 }]
+
+        console.log('Количество ошибочных записей = ', invalidEntries); // 4
+        // 4
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

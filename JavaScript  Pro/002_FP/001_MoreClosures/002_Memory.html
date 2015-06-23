@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Memory</title>
+    <script>
+        // function myFunc() {
+        //     var value = 123;
+        //     function innerFunc() {} // innerFunc видна только изнутри
+        // }
+
+        // myFunc();
+
+        function myFunc() {
+            var value = 123;
+
+            function innerFunc() {
+                // debugger; когда переменная из замыкания абсолютно точно не используется, V8 удалят её. alert( value ) - в консоли
+                console.log('123');
+            }
+
+                return innerFunc;
+            }
+
+        var innerFunc = myFunc(); // функция innerFunc будет жить и сохранит ссылку на объект переменных
+
+        console.log(innerFunc());
+
+        innerFunc = null
+         // ... память будет очищена
+         console.log(innerFunc());
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

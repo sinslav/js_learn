@@ -1,0 +1,33 @@
+<!-- Метод map() создаёт новый массив с результатом вызова указанной функции для каждого элемента массива. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map</title>
+    <script>
+        var numbers = [1, 4, 9];
+        var roots = numbers.map(Math.sqrt);
+        console.log(numbers, roots);
+    </script>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+    <div>10</div>
+    <script>
+        var elems = document.querySelectorAll('div');
+        // NodeList
+        var values = [].map.call(elems, function(obj) {
+          return obj.innerHTML;
+        });
+        console.log(values);
+    </script>
+</body>
+</html>

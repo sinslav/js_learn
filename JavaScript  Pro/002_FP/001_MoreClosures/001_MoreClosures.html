@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>More Closures</title>
+  <script>
+      function player() {
+        var currentSong = 1;
+
+        function songCounter() {
+            return currentSong++;
+          }
+
+        // методы
+        songCounter.setsong = function(value) {
+          currentSong = value;
+        };
+
+        songCounter.reset = function() {
+          currentSong = 0;
+        };
+
+        return songCounter;
+      }
+
+      var myPlayer = player();
+
+      alert( myPlayer() ); // 1
+      alert( myPlayer() ); // 2
+      myPlayer.reset();
+      alert(myPlayer());
+
+      myPlayer.setsong(5);
+      alert( myPlayer() ); // 5
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Immutable</title>
+    <script>
+        // Good
+        var statement = "I am an immutable value";
+        var otherStr = statement.slice(8, 17);
+        console.log(otherStr);
+        // Не существует строковых методов, которые бы изменяли строку над которой они выполняют действие, все они возвращают новые строки. 
+        // Причина состоит в том, что строки неизменяемы — их нельзя преобразовывать, мы можем лишь создавать новые строки.
+        
+        // Bad 
+        var arr = [];
+        var v2 = arr.push(2); 
+
+        // Если бы массивы вели себя сообразно строкам и числам, то v2 содержал бы новый массив с одним элементом внутри — 2. Однако это другой случай. Вместо этого была изменена ссылка arr дабы содержать число, а v2 содержит новую длину arr.
+
+    </script>
+</head>
+<body>
+    <pre>
+        var arr = new ImmutableArray([1, 2, 3, 4]);
+        var v2 = arr.push(5);
+ 
+        arr.toArray(); // [1, 2, 3, 4]
+        v2.toArray();  // [1, 2, 3, 4, 5]
+
+        var person = new ImmutableMap({name: "Chris", age: 32});
+        var olderPerson = person.set("age", 33);
+         
+        person.toObject(); // {name: "Chris", age: 32}
+        olderPerson.toObject(); // {name: "Chris", age: 33}
+    </pre>
+        <a href="https://facebook.github.io/immutable-js/">
+            Immutable JS
+        </a>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Compose</title>
+    <script>
+        var compose = function () {
+          var fns = arguments;
+
+          return function (result) {
+            for (var i = fns.length - 1; i > -1; i--) {
+              result = fns[i].call(this, result);
+            }
+            return result;
+          };
+        };
+
+        var number = compose(Math.round, parseFloat);
+        console.log(number('72.5'));
+        // The above function iterates over the function list (our arguments) in reverse - the last function to pass in is executed first. Given a single value as the initial input, it'll chain that value between every function call and return the final result
+        // Приведенные выше функция проходит по списку функции (наши аргументы) в обратном направлении - последняя переданная функция выполняется первой. Если будет переданно одно значение в качестве аргумента, то мы свяжем цепочкой, значение между каждым вызовом функции и конечным результатом
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

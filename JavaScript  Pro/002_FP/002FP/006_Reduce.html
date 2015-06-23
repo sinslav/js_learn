@@ -1,0 +1,23 @@
+<!-- Метод reduce() применяет функцию к аккумулятору и каждому значению массива (слева-направо), сводя его к одному значению. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reduce</title>
+    <script>
+        var myArray = [0, 1, 2, 3, 4];
+        var modifiedArray = myArray.reduce(function(previousValue, currentValue, index, array) {
+          return previousValue + currentValue;
+        });
+        console.log(modifiedArray);
+        modifiedArray = myArray.reduce(function(previousValue, currentValue, index, array) {
+            return previousValue + currentValue;
+        }, 10);
+        console.log(modifiedArray);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
