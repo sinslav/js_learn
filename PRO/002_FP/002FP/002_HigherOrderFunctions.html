@@ -8,14 +8,14 @@
       var fn = (function() {
          var numberOfCalls = 0;
          return function() {
-            return ++ numberOfCalls;
+            return ++numberOfCalls;
          }
       })();
         console.log(fn());
     </script>
 </head>
 <body>
-    <div class="btn"></div>
+    <div id="btn"></div>
     <script>
         var el = document.getElementById("btn");
 

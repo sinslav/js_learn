@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timeout vs Interval</title>
+    <script>
+        console.log( "a" ); 
+        setTimeout( function () { 
+            console.log( "c")
+        }, 500 ); 
+        setTimeout( function () {
+            console.log( "d" )
+        }, 500); 
+        setTimeout( function () {
+            console.log( "e" ) 
+        }, 500); 
+        console.log( "b" );
+        // сначало видим a и b setTimeout отправляется в Event Loop для асинхроных функциий и работает как callback.
+
+        for( var j = 0; j < 5; j++ ) {
+            setTimeout ( function () {
+                console.log(j); // ошибка
+            }, 555); 
+        }
+
+        for( var j = 0; j < 5; j++ ) { 
+            (function (j){ 
+                setTimeout( function () { 
+                    console.log(j); 
+                }, 555); } ) (j); 
+        };
+    </script>
+</head>
+<body>
+        <input type="button" onclick="clearInterval(timer)" value="stop">
+
+        <script> 
+            var i = 1
+            // timer = setInterval(function() { alert(i++) }, 2000);
+            setTimeout(function(){
+                alert(i++);
+                setTimeout(arguments.callee, 2000);
+            }, 10);
+        </script>
+<!--         Браузер запускает функцию каждые 2 секунды
+             При нажатии оповещения - выполнение блокируется и остается заблокированным в то время как на экран выводится результат alert.
+             Если вы будете ждать достаточно долго, очередь браузера вызывает следующий alert.
+             При нажатии OK и выхода из уведомление - очередь выполнение сразу изменяется.
+             Следующие выполнение выполнится с более короткой задержкой. Это потому, что планировщик просыпается каждый 2000 мс. Так что, если alert появился в 3500ms, то следующий запуск через 500 мс. -->
+</body>
+</html>

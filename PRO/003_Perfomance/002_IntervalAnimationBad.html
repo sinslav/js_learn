@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    #animatedelem {
+      border: 1px solid red;
+      width: 100px;
+      height: 100px;
+      position: relative;
+    }
+  </style>
+  <script>
+      function animationHandler () {
+          var elem = document.getElementById("animatedelem"),
+              left = 0,
+              timer;
+              // двигаем вправо каждые 16ms
+              timer = setInterval(function() {
+              elem.style.left = ( left += 10 ) + "px";
+              // на 400px стоп
+              if ( left === 400 ) {
+                  clearInterval( timer );
+              }
+          }, 16);
+      }
+      window.addEventListener('load', animationHandler);
+      // var elem = document.getElementById("animatedуlem"),
+      //     left = 0,
+      //     lastFrame = new Date.getTime(),
+      //     timer;
+      //   //  скорость ~600px/s
+      //     timer = setInterval(function() {
+      //     var now = new Date().getTime(),
+      //     deltaT = now - lastFrame;
+      //     elem.style.left = ( left += 10 * deltaT / 16 ) + "px";
+      //     lastFrame = now;
+      //     // на 400px стоп
+      //     if ( left > 400 ) {
+      //       clearInterval( timer );
+      //     }
+      //   }, 16)
+      // Более сложная техника заключается в проверке количества миллисекунд, прошедших с момента последнего вызова анимирующей функции и обновления позицию элемента, полагаясь на разницу во времени
+  </script>
+</head>
+<body>
+  <div id="animatedelem">
+    
+  </div>
+</body>
+</html>

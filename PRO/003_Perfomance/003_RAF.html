@@ -1,0 +1,43 @@
+<!-- window.requestAnimationFrame указывает браузеру на то, что вы хотите произвести анимацию, 
+и просит его запланировать перерисовку на следующем кадре анимации. В качестве параметра метод получает функцию, 
+которая будет вызвана перед перерисовкой. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>requestAnimationFrame</title>
+    <style>
+        #animatedelem {
+            border: 1px solid red;
+            width: 100px;
+            height: 100px;
+            position: relative;
+        }
+    </style>
+    <script>
+        function animationHandler () {
+            var elem = document.getElementById("animatedelem"),
+                left = 0,
+                globalID;
+            function stepAnim() {
+                globalID = requestAnimationFrame(stepAnim);
+                // описываем один шаг анимации тут
+                elem.style.left = ( left += 10 ) + "px";
+                if ( left === 400 ) {
+                    cancelAnimationFrame(globalID);
+                }
+            }
+            stepAnim();
+        }
+        window.addEventListener('load', animationHandler);
+    </script>
+</head>
+<body>
+    <a href="https://gist.github.com/paulirish/1579671">
+        Полифил
+    </a>
+      <div id="animatedelem">
+      </div>
+    <!--      Браузеры могут оптимизировать анимации идущие одновременно, уменьшив число reflow и repaint до одного, что в свою очередь приведет к повышению точности анимации. Например анимации на JavaScript синхронизированные с CSS transitions или SVG. Плюс ко всему если выполняется анимация в табе, который невидим, браузеры не будут продолжать перерисовку, что приведет к меньшему использованию CPU, GPU, памяти и как следствие снизит расход батареи в мобильных устройствах. -->
+</body>
+</html>

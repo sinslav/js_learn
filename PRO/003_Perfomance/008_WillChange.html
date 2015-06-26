@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Will-Change</title>
+    <style>
+    /*transform: translate3d(0, 0, 0);*/
+        #element {
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+        }
+        #element:hover {
+            transition: transform 2s;
+            transform: rotate(30deg) scale(1.5) translateX(100px);
+            opacity: 0.5;
+            background: yellow;
+        }
+        .wrapper {
+            padding: 20px;
+            border: 1px solid green;
+        }
+    </style>
+    <script>
+        function loadHandler () {
+            var el = document.getElementById('element');
+
+            // Set will-change when the element is hovered
+            el.addEventListener('mouseenter', hintBrowser);
+            el.addEventListener('animationEnd', removeHint);
+
+            function hintBrowser() {
+              // The optimizable properties that are going to change
+              // in the animation's keyframes block
+              this.style.willChange = 'transform, opacity';
+            }
+
+            function removeHint() {
+              this.style.willChange = 'auto';
+            }
+        }
+        window.addEventListener('load', loadHandler);
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div id="element">
+        </div>
+    </div>
+</body>
+</html>

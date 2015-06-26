@@ -1,0 +1,167 @@
+<!-- Этот код проходит по группе абзацев и задает ширину каждого из них в соответствии с шириной элемента “поле”. Выглядит довольно безвредно, однако проблема заключается в том, что при каждом проходе выполняется считывание значения стиля (box.offsetWidth), после чего оно сразу же используется для изменения ширины абзаца (paragraphs[i].style.width). При следующем проходе браузер должен будет учесть, что стили с момента последнего запроса значения offsetWidth изменились (при предыдущем проходе), поэтому он должен применить изменения стилей и выполнить перерасчет макета. И это будет происходить при каждом проходе! -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .box {
+            width: 50vw;
+            height: 50vh;
+        }
+        p {
+            border: 1px solid red;
+        }
+    </style>
+    <script>
+        var paragraphs, box;
+        function loadListener () {
+            paragraphs = document.querySelectorAll('p'),
+            box = document.querySelector('.box');
+            function logBoxHeight() {
+                console.log(box.offsetHeight);
+                box.classList.add('super-big'); 
+                // в таком порядке а не наоборот
+            }
+            logBoxHeight();
+        }
+        function resizeAllParagraphsToMatchBlockWidth() {
+          //   var width = box.offsetWidth;
+
+          //   for (var i = 0; i < paragraphs.length; i++) {
+          //       // только запись
+          //       paragraphs[i].style.width = width + 'px';
+          // }
+        // read-write-read-write цикл.
+        for (var i = 0; i < paragraphs.length; i++) {
+            paragraphs[i].style.width = box.offsetWidth + 'px';
+        }
+    }
+    window.addEventListener('load', loadListener);
+    window.addEventListener('scroll', resizeAllParagraphsToMatchBlockWidth);
+</script>
+<title>Layout</title>
+</head>
+<body>
+    <div class="box">
+        123
+        <a href="http://wilsonpage.github.io/fastdom/examples/animation.html">FastDom</a>
+        <h1>Layout</h1>
+    <table class="code">
+      <tbody>
+          <tr><td>width</td><td>height</td></tr>
+          <tr><td>padding</td><td>margin</td></tr>
+          <tr><td>display</td><td>border-width</td></tr>
+          <tr><td>border</td><td>top</td></tr>
+          <tr><td>position</td><td>font-size</td></tr>
+          <tr><td>float</td><td>text-align</td></tr>
+          <tr><td>overflow-y</td><td>font-weight</td></tr>
+          <tr><td>overflow</td><td>left</td></tr>
+          <tr><td>font-family</td><td>line-height</td></tr>
+          <tr><td>vertical-align</td><td>right</td></tr>
+          <tr><td>clear</td><td>white-space</td></tr>
+          <tr><td>bottom</td><td>min-height</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>asd</p>
+    <p>123</p>
+    <p>312</p>
+    <p>213</p>
+    <p>123</p>
+    <p>123</p>
+    <p>123</p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p>asd</p>
+    <p></p>
+    <p></p>
+    <p>asd</p>
+    <p>asd</p>
+    <p>asd</p>
+    <p>asd</p>
+    <p>asd</p>
+  </body>
+  </html>
