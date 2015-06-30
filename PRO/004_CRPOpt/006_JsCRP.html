@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet">
+<!--     <link href="print.css" rel="stylesheet" media="print">
+    <link href="other.css" rel="stylesheet" media="(max-width: 768px)"> -->
+    <script>
+        function measureCRP() {
+            var perfTime = window.performance.timing,
+                interactive = perfTime.domInteractive - perfTime.domLoading,
+                dcl = perfTime.domContentLoadedEventStart - perfTime.domLoading,
+                complete = perfTime.domComplete - perfTime.domLoading;
+            var stats = document.createElement('p');
+                stats.textContent = 'interactive: ' + interactive + 'ms, ' +
+                'dcl: ' + dcl + 'ms, complete: ' + complete + 'ms';
+                document.body.appendChild(stats);
+        }
+</script>
+</head>
+<body onload="measureCRP()">
+        <h1>My First Heading</h1>
+
+    <img src="http://iteducate.com.ua/wp-content/themes/new-it/relize/img/logo.png" alt="IT Educate">
+    <ul>
+        <li>domInteractive. Модель DOM готова.</li>
+        <li>Если в HTML-документе нет встроенного кода JavaScript, событие DOMContentLoaded инициируется сразу после domInteractive.</li>
+        <li>domComplete. Страница готова, ее контент загружен.</li>
+
+    </ul>
+    <p>
+        My first paragraph. 
+        <span>My first span</span>
+    </p>
+</body>
+</html>

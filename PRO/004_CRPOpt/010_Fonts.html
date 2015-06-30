@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fonts optimization</title>
+    <style>
+        @font-face {
+          font-family: 'Awesome Font';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Awesome Font'),
+               url('/fonts/awesome.woff2') format('woff2'), 
+               url('/fonts/awesome.woff') format('woff'),
+               url('/fonts/awesome.ttf') format('ttf'),
+               url('/fonts/awesome.eot') format('eot');
+        }
+
+        @font-face {
+          font-family: 'Awesome Font';
+          font-style: italic;
+          font-weight: 400;
+          src: local('Awesome Font Italic'),
+               url('/fonts/awesome-i.woff2') format('woff2'), 
+               url('/fonts/awesome-i.woff') format('woff'),
+               url('/fonts/awesome-i.ttf') format('ttf'),
+               url('/fonts/awesome-i.eot') format('eot');
+        }
+        /*Unicode*/
+        @font-face {
+          font-family: 'Awesome Font';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Awesome Font'),
+               url('/fonts/awesome-l.woff2') format('woff2'), 
+               url('/fonts/awesome-l.woff') format('woff'),
+               url('/fonts/awesome-l.ttf') format('ttf'),
+               url('/fonts/awesome-l.eot') format('eot');
+          unicode-range: U+000-5FF; /* Latin glyphs */
+        }
+
+        @font-face {
+          font-family: 'Awesome Font';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Awesome Font'),
+               url('/fonts/awesome-jp.woff2') format('woff2'), 
+               url('/fonts/awesome-jp.woff') format('woff'),
+               url('/fonts/awesome-jp.ttf') format('ttf'),
+               url('/fonts/awesome-jp.eot') format('eot');
+          unicode-range: U+3000-9FFF, U+ff??; /* Japanese glyphs */
+        }
+    </style>
+</head>
+<body>
+    Проблемы с загрузкой шрифтов
+    <ul>
+        <li>Safari отображает текст только после того, как шрифт скачан.</li>
+        <li>Chrome и Firefox задерживают отрисовку шрифта до 3 секунд, после чего используют запасной вариант. После скачивания ресурса браузеры применяют его для повторной визуализации текста.</li>
+        <li>IE сразу показывает текст с помощью запасного шрифта, а потом заново отображает страницу после скачивания ресурса.</li>
+    </ul>
+    <a href="https://css-tricks.com/preventing-the-performance-hit-from-custom-fonts/">Problems with custom fonts</a>
+    <a href="http://dev.w3.org/csswg/css-font-loading/">Font Loading API</a>
+    <script>
+        var font = new FontFace("Awesome Font", "url(/fonts/awesome.woff2)", {
+          style: 'normal', unicodeRange: 'U+000-5FF', weight: '400'
+        });
+
+        font.load(); // мы можем указать это и настроить в браузере немедленное скачивание этого ресурса.
+
+        font.ready().then(function() {
+          // на событие готовности шрифта (возможнен reflow)
+          document.fonts.add(font);
+          document.body.style.fontFamily = "Awesome Font, serif";
+
+          // показываем контент только после того шрифт готов
+          var content = document.getElementById("content");
+          content.style.visibility = "visible";
+
+        });
+    </script>
+</body>
+</html>

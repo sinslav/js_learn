@@ -1,0 +1,37 @@
+<!-- Используйте медиазапросы, чтобы сократить время вывода страницы на экран. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Print</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="print.css" rel="stylesheet" media="print">
+    <link href="other.css" rel="stylesheet" media="(max-width: 768px)">
+</head>
+<body>
+    <h1>My First Heading</h1>
+
+    <img src="http://iteducate.com.ua/wp-content/themes/new-it/relize/img/logo.png" alt="IT Educate">
+
+    <span>
+        Когда синтаксический анализатор встречает тег скрипта, он приостанавливает создание модели 
+        DOM и запускает механизм выполнения JavaScript
+    </span>
+    <script>
+      var span = document.getElementsByTagName('span')[0];
+          span.textContent = 'interactive'; // изменяем DOM
+          span.style.display = 'inline';  // изменяем CSSOM свойство
+          // создаем новый тег, задаем стили, и добавляем в DOM
+          var loadTime = document.createElement('div');
+          loadTime.textContent = 'Вы загрузили эту страницу: ' + new Date();
+          loadTime.style.color = 'blue';
+          window.alert('working');
+          document.body.appendChild(loadTime);
+          // При использовании скриптов также следует помнить, что они могут изменять не только свойства DOM, но и CSSOM. Именно это и происходит в нашем примере при замене значения none на inline в свойствах стиля. В результате образуется состояние гонки.
+      </script>
+      <p>
+        My first paragraph. 
+        <span>My first span</span>
+      </p>
+  </body>
+  </html>

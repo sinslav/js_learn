@@ -1,0 +1,27 @@
+<!-- Используйте медиазапросы, чтобы сократить время вывода страницы на экран. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Print</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="print.css" rel="stylesheet" media="print">
+    <link href="other.css" rel="stylesheet" media="(max-width: 768px)">
+</head>
+<body>
+    <h1>My First Heading</h1>
+
+    <p>
+        My first paragraph. 
+        <span>My first span</span>
+    </p>
+
+    <img src="http://iteducate.com.ua/wp-content/themes/new-it/relize/img/logo.png" alt="IT Educate">
+
+    <span>
+        Учтите, что под блокировкой подразумевается только приостановка вывода страницы. 
+        При этом браузер скачивает все CSS-файлы независимо от того, блокируют они вывод или нет. 
+        Приоритет скачивания выше у тех файлов, без которых вывод страницы невозможен.
+    </span>
+</body>
+</html>
