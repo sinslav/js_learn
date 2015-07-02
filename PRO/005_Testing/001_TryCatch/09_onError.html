@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OnError</title>
+    <script>
+    function loadHandler () {
+        var myButton = document.getElementById('mybutton');
+        var container = document.getElementById('container');
+        myButton.addEventListener('click', clickHandler)
+    }
+
+    function clickHandler () {
+        var customImg = '<img style="display: none;" id="stub" alt="Default Text"/>';
+        container.innerHTML = customImg;
+        var stub = document.getElementById('stub');
+        stub.onerror = fnLoadFail;
+        stub.src = "";
+        stub.style.display = "block";
+    }
+
+    function fnLoadFail(){
+       stub.alt=" Image failed to load.";
+    }
+
+    function errorListener (message, url, lineNumber) {
+        console.log("Поймана ошибка, выпавшая в глобальную область!\n" +
+      "Сообщение: " + message + "\n(" + url + ":" + lineNumber + ")")
+    } 
+    window.addEventListener('load', loadHandler);
+    window.onerror = errorListener;
+    </script>
+</head>
+<body>
+    <input type="button" value="Load First Image" id='mybutton'/>
+    <div id='container'></div>
+</body>
+</html>

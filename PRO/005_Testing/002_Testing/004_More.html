@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Continue</title>
+</head>
+<body>
+    <ul>
+        <li>
+            <span>
+                Описать функиональность, модули.
+            </span>
+            <pre>
+                it('should be able to delete a contact', function() {
+                    addressBook = new AddressBook();
+                    thisContact = new Contact();
+                    addressBook.addContact(thisContact);
+                    addressBook.deleteContact(0);
+                    expect(addressBook.getContact(0)).not.toBeDefined();
+                });
+            </pre>
+        </li>
+            <span>Добавит метод</span>
+            <pre>
+                AddressBook.prototype.deleteContact = function(index) {
+                    this.contacts.splice(index, 1);
+                }
+            </pre>
+        </li>
+        <li><span>Рефакторинг</span></li>
+        <li>Перенести в 
+            beforeEach(function() {
+                addressBook = new AddressBook();
+                thisContact = new Contact();
+            });
+    </li>
+    </ul>
+</body>
+</html>

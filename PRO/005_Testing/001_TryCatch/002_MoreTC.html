@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>More try Catch</title>
+    <script>
+        // На момент запуска функции, назначенной через setTimeout, этот код уже завершится, интерпретатор выйдет из блока try..catch.
+        // Чтобы поймать ошибку внутри функции из setTimeout, и try..catch должен быть в той же функции.
+        try {
+          setTimeout(function() {
+            throw new Error(); // вылетит в консоль
+          }, 1000);
+        } catch (e) {
+          console.log( "не сработает" );
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

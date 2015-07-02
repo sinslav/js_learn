@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON parse Try&Catch</title>
+    <script>
+        var xhr = new XMLHttpRequest();
+        var url = "posts.txt";
+
+        function postsResponseHander() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                try {
+                    var data = JSON.parse(xhr.responseText);
+                    myFunction(data);
+                    console.log(typeof data);
+                } 
+                catch(e){
+                    alert( "Извините, в данных ошибка, мы попробуем получить их ещё раз" );
+                    alert( e.name );
+                    alert( e.message );
+                    alert( e.stack );
+                }
+            }
+        }
+        xhr.addEventListener('readystatechange', postsResponseHander)
+        xhr.open("GET", url, true);
+        xhr.send();
+
+        function myFunction(data) {
+            document.getElementById("myelem").innerHTML = data;
+        }
+    </script>
+</head>
+<body>
+    <div id="myelem">
+        
+    </div>
+</body>
+</html>

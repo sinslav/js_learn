@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Start</title>
+</head>
+<body>
+    <ul>
+        <li>
+            <span>
+                Добавить ссылки на src и spec
+            </span>
+            <pre>
+                &lt;script src="src/AddressBook.js"&gt;&lt;/script&gt;
+                &lt;script src="src/Contact.js"&gt;&lt;/script&gt;
+                &lt;script src="spec/AddressBookSpec.js"&gt;&lt;/script&gt;
+                &lt;script src="spec/ContactSpec.js"&gt;&lt;/script&gt;
+            </pre>
+        </li>
+        <li>
+            <span>
+                Описать функиональность, модули.
+            </span>
+            <pre>
+                describe('Address Book', function() {
+                    addressBook = new AddressBook();
+                    thisContact = new Contact();
+                    it('should be able to add a contact', function() {
+                        addressBook.addContact(thisContact);
+                        expect(addressBook.getContact(0)).toBe(thisContact);
+                    });
+                });
+            </pre>
+        </li>
+        <li>
+            <span>Добавить конструкторы</span>
+            <pre>
+                function Contact() {
+                }
+                function AddressBook() {
+                    this.initialComplete = false;
+                    this.contacts = [];
+                }
+            </pre>
+        </li>
+        <li>
+            <span>и методы</span>
+            <pre>
+                AddressBook.prototype.addContact = function(contact) {
+                    this.contacts.push(contact);
+                }
+                AddressBook.prototype.getContact = function(index) {
+                    return this.contacts[index];
+                }
+            </pre>
+        </li>
+    </ul>
+</body>
+</html>

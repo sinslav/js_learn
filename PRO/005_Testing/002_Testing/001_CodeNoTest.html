@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing</title>
+    <script>
+    function add (a, b) {
+        return a + b;
+    }
+    // Ожидания
+    add(2, 3); // 5
+    add(2, 3); // не 6
+    add('2', '3') // 23, а может лучше ошибку?
+    add(0.1, 0.2) // === false -> why ?
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

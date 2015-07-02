@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON parse Try&Catch</title>
+    <script>
+        var xhr = new XMLHttpRequest();
+        var url = "posts.txt";
+
+        function postsResponseHander() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var data = JSON.parse(xhr.responseText);
+                myFunction(data);
+            }
+        }
+        xhr.addEventListener('readystatechange', postsResponseHander)
+        xhr.open("GET", url, true);
+        xhr.send();
+
+        function myFunction(data) {
+            function bodyCheck (elem) {
+                try {
+                    if(!elem.body) {
+                        throw new SyntaxError("Данные некорректны");
+                    }
+                    someVar // произошла непредусмотренная ошибка
+                } 
+                catch (e) {
+                    if (e.name == "SyntaxError") {
+                        alert( "Извините, в данных ошибка" );
+                    } else {
+                        throw e;
+                    }
+                }
+            }
+            try {
+                bodyCheck();
+            } catch (e) {
+                alert( "Поймал во внешнем catch: " + e ); // ловим
+            }
+            data.forEach(bodyCheck);
+            document.getElementById("myelem").innerHTML = data;
+        }
+    </script>
+</head>
+<body>
+    <div id="myelem">
+        
+    </div>
+</body>
+</html>

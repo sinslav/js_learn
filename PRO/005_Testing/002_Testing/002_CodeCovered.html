@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing</title>
+    <script>
+        function add (a, b) {
+            var result;
+            if ( (typeof a && typeof b) !== 'number' ) {
+                throw new Error ('Аргументы должны быть типа "number" ');
+            };
+            result = a + b;
+            if (parseInt(result) !== result) {
+                result = parseFloat(result.toFixed(1));
+            }
+            return result;
+        }
+    </script>
+</head>
+<body>
+    <pre>
+        expect(add(2,3)).toBe(5);
+        expect(add(2,'bla')).toThrow();
+        expect(add(0.1,0.2)).toBe(0.3);
+    </pre>
+</body>
+</html>
