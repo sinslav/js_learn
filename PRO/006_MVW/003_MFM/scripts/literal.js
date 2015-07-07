@@ -1,0 +1,25 @@
+var myModule = {
+    myProperty: 'someValue',
+    // Литералы объектов могут содержать свойства и методы.
+    // ниже в свойстве определен другой объект,
+    // для описания конфигурации:
+    myConfig: {
+        useCaching: true,
+        language: 'en'
+    },
+    // Очень простой метод
+    myMethod: function() {
+        console.log('I can haz functionality?');
+    },
+    // вывод значения заданного в конфигурации
+    myMethod2: function() {
+        console.log('Caching is: ' + ((this.myConfig.useCaching) ? 'enabled' : 'disabled'));
+    },
+    // переопределение конфигурации
+    myMethod3: function(newConfig) {
+        if (typeof newConfig == 'object') {
+            this.myConfig = newConfig;
+            console.log(this.myConfig.language); 
+        }
+    }
+};

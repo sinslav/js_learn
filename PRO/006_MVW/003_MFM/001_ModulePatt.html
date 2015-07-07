@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Module pattern</title>
+    <script src="scripts/moduleBasket.js"></script>
+    <script>
+        basketModule.addItem({item:'bread', price:0.5});
+        basketModule.addItem({item:'butter', price:0.3});
+        console.log(basketModule.getItemCount());
+        console.log(basketModule.getTotal());
+
+        // А следующий ниже код работать не будет:
+        console.log(basketModule.basket); // undefined потому что не входит в возвращаемый объект
+        console.log(basket); // массив доступен только из замыкания
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

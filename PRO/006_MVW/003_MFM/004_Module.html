@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Module</title>
+    <script src="scripts/mediator.js"></script>
+    <script>
+        Mediator.add('TestObject', function() {
+            var someNumber = 0; // sample variable
+            var someString = 'another sample variable';
+            return {
+                onInitialize: function() {
+                    alert("Initialized.");
+                },
+                onFakeEvent: function() {
+                    someNumber++;
+                    alert("Handled " + someNumber + " times!");
+                },
+                onSetString: function(str) {
+                    someString = str;
+                    alert('Assigned ' + someString);
+                }
+            }
+        }());
+
+        Mediator.broadcast('Initialize');                 // alerts "Initialized"
+        Mediator.broadcast('FakeEvent');                  // alerts "Handled 1 times!" 
+        Mediator.broadcast('SetString', ['test string']); // alerts "Assigned test string"
+        Mediator.broadcast('FakeEvent');                  // alerts "Handled 2 times!"
+        Mediator.broadcast('SessionStart');               // игнорируем
+        Mediator.broadcast('Translate', ['this is also safely ignored']); // игнорируем
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
